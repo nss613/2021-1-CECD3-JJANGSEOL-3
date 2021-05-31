@@ -1,0 +1,2 @@
+rootProject.name = "UARTLoopback"
+include ':app'
