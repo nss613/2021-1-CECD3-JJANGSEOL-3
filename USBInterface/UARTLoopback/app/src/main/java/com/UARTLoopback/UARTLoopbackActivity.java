@@ -22,8 +22,17 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.UARTLoopback.R.drawable;
+import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class UARTLoopbackActivity extends Activity {
+	//database test
+	//firebase connect
+	private FirebaseDatabase firebaseDB = FirebaseDatabase.getInstance();
+	//database test
+	//database reference
+	private DatabaseReference databaseReference = firebaseDB.getReference();
 
 	// menu item
 	Menu myMenu;
@@ -75,8 +84,12 @@ public class UARTLoopbackActivity extends Activity {
 	public boolean bConfiged = false;
 	public SharedPreferences sharePrefSettings;
 	Drawable originalDrawable;
-	public String act_string; 
+	public String act_string;
 
+	//database test
+	public void addFirebase(String name, String kind){
+		databaseReference.child("zoo").child(name).setValue((kind));
+	}
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -87,6 +100,8 @@ public class UARTLoopbackActivity extends Activity {
 		/* create editable text objects */
 		readText = (EditText) findViewById(R.id.ReadValues);
 		writeText = (EditText) findViewById(R.id.WriteValues);
+		//database test
+		addFirebase("ziho", "park");
 
 		global_context = this;
 
@@ -769,4 +784,5 @@ public class UARTLoopbackActivity extends Activity {
     		break;
     	}
     }
+
 }
