@@ -36,13 +36,13 @@ public class UARTLoopbackActivity extends Activity {
     // database test
     // database reference
     private DatabaseReference databaseReference = firebaseDB.getReference();
-    //timestamp 용
+    // timestamp 용
     Date now = new Date();
     SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     String currentTime = transFormat.format(now);
 
-    //database test
-    public void addFirebase(String name, String kind){
+    // database test
+    public void addFirebase(String name, String kind) {
         databaseReference.child(currentTime).child(name).setValue((kind));
     }
 
@@ -788,15 +788,19 @@ public class UARTLoopbackActivity extends Activity {
         }
     }
 
-    //add parsing
+    // add parsing
     public void parsing(StringBuilder sb) {
         int startIndex = sb.indexOf("55 33");
         int endToCmd = 18;
         int cmdLen = 8;
+        StringBuffer writeSB;
         String cmdString = sb.substring(startIndex + endToCmd, startIndex + endToCmd + cmdLen);
         switch (cmdString) {
             case "60 10 10": {
+                writeSB = "119BUTTON";
+                wrietSB.delete(0, readSB.length());
                 writeText.setText("119 BUTTON");
+
                 databaseReference.child("Event").child(currentTime).setValue(("119 BUTTON"));
 
             }
@@ -807,10 +811,9 @@ public class UARTLoopbackActivity extends Activity {
 
             }
                 break;
-            default:
+            default: {
                 writeText.setText("DONT KNOW");
                 databaseReference.child("Event").child(currentTime).setValue(("DONT KNOW"));
-
             }
                 break;
         }
