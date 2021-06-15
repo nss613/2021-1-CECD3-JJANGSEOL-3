@@ -776,6 +776,7 @@ public class UARTLoopbackActivity extends Activity {
         }
     }
 
+    //add parsing
     public void parsing(StringBuilder sb) {
         int startIndex = sb.indexOf("55 33");
         int endToCmd = 18;
