@@ -807,7 +807,7 @@ public class UARTLoopbackActivity extends Activity {
 
             }
                 break;
-            default:
+            default:{
                 writeText.setText("DONT KNOW");
                 databaseReference.child("Event").child(currentTime).setValue(("DONT KNOW"));
 
