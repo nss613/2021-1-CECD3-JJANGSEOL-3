@@ -26,6 +26,9 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class UARTLoopbackActivity extends Activity {
     // database test
     // firebase connect
@@ -33,6 +36,15 @@ public class UARTLoopbackActivity extends Activity {
     // database test
     // database reference
     private DatabaseReference databaseReference = firebaseDB.getReference();
+    //timestamp 용
+    Date now = new Date();
+    SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    String currentTime = transFormat.format(now);
+
+    //database test
+    public void addFirebase(String name, String kind){
+        databaseReference.child(currentTime).child(name).setValue((kind));
+    }
 
     // menu item
     Menu myMenu;
@@ -785,14 +797,20 @@ public class UARTLoopbackActivity extends Activity {
         switch (cmdString) {
             case "60 10 10": {
                 writeText.setText("119 BUTTON");
+                databaseReference.child("Event").child(currentTime).setValue(("119 BUTTON"));
+
             }
                 break;
             case "67 4a 01": {
                 writeText.setText("DOOR");
+                databaseReference.child("Event").child(currentTime).setValue(("DOOR"));
+
             }
                 break;
             default: {
                 writeText.setText("DONT KNOW");
+                databaseReference.child("Event").child(currentTime).setValue(("DONT KNOW"));
+
             }
                 break;
         }
