@@ -250,9 +250,8 @@
 	 	    android:layout_margin="10dp"
 	 	    android:layout_weight="1"
 	 	    android:background="#708070"
-	 	    android:editable="true"
-	 	    android:gravity="left|center"
-	 	    android:maxLength="64"
+			android:focusableInTouchMode="false"
+			android:gravity="left|center"
      		/>
 	 			
 	    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -272,7 +271,7 @@
 		 			android:layout_weight="1"
 		 			android:text="Write"
 		 			/>	 			
-		</LinearLayout>				  			 			
+		</LinearLayout>
 	
 	</LinearLayout>
 </LinearLayout>
