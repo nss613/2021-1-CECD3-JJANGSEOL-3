@@ -22,14 +22,23 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.UARTLoopback.R.drawable;
+import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class UARTLoopbackActivity extends Activity {
+    // database test
+    // firebase connect
+    private FirebaseDatabase firebaseDB = FirebaseDatabase.getInstance();
+    // database test
+    // database reference
+    private DatabaseReference databaseReference = firebaseDB.getReference();
 
     // menu item
     Menu myMenu;
     final int MENU_FORMAT = Menu.FIRST;
     final int MENU_CLEAN = Menu.FIRST + 1;
-    final String[] formatSettingItems = {"ASCII", "Hexadecimal", "Decimal"};
+    final String[] formatSettingItems = { "ASCII", "Hexadecimal", "Decimal" };
 
     final int FORMAT_ASCII = 0;
     final int FORMAT_HEX = 1;
@@ -85,7 +94,7 @@ public class UARTLoopbackActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         sharePrefSettings = getSharedPreferences("UARTLBPref", 0);
-        //cleanPreference();
+        // cleanPreference();
         /* create editable text objects */
         readText = (EditText) findViewById(R.id.ReadValues);
         writeText = (EditText) findViewById(R.id.WriteValues);
@@ -154,7 +163,6 @@ public class UARTLoopbackActivity extends Activity {
         flowSpinner.setGravity(0x11);
         /* default flow control is is none */
         flowControl = 0;
-
 
         /* set the adapter listeners for baud */
         baudSpinner.setOnItemSelectedListener(new MyOnBaudSelectedListener());
@@ -359,10 +367,8 @@ public class UARTLoopbackActivity extends Activity {
         }
     }
 
-
     public class MyOnBaudSelectedListener implements OnItemSelectedListener {
-        public void onItemSelected(AdapterView<?> parent, View view, int pos,
-                                   long id) {
+        public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
 
             baudRate = Integer.parseInt(parent.getItemAtPosition(pos).toString());
         }
@@ -372,8 +378,7 @@ public class UARTLoopbackActivity extends Activity {
     }
 
     public class MyOnStopSelectedListener implements OnItemSelectedListener {
-        public void onItemSelected(AdapterView<?> parent, View view, int pos,
-                                   long id) {
+        public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
 
             stopBit = (byte) Integer.parseInt(parent.getItemAtPosition(pos).toString());
         }
@@ -383,8 +388,7 @@ public class UARTLoopbackActivity extends Activity {
     }
 
     public class MyOnDataSelectedListener implements OnItemSelectedListener {
-        public void onItemSelected(AdapterView<?> parent, View view, int pos,
-                                   long id) {
+        public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
 
             dataBit = (byte) Integer.parseInt(parent.getItemAtPosition(pos).toString());
         }
@@ -394,8 +398,7 @@ public class UARTLoopbackActivity extends Activity {
     }
 
     public class MyOnParitySelectedListener implements OnItemSelectedListener {
-        public void onItemSelected(AdapterView<?> parent, View view, int pos,
-                                   long id) {
+        public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
 
             String parityString = new String(parent.getItemAtPosition(pos).toString());
             if (parityString.compareTo("None") == 0) {
@@ -440,7 +443,7 @@ public class UARTLoopbackActivity extends Activity {
         }
     }
 
-    //@Override
+    // @Override
     public void onHomePressed() {
         onBackPressed();
     }
@@ -479,7 +482,6 @@ public class UARTLoopbackActivity extends Activity {
         uartInterface.DestroyAccessory(bConfiged);
         super.onDestroy();
     }
-
 
     final Handler handler = new Handler() {
         @Override
@@ -579,8 +581,8 @@ public class UARTLoopbackActivity extends Activity {
                                 + "\nThere should be only 1 space between 2 HEX words.", Toast.LENGTH_SHORT);
                         return;
                     } else if (tmpStr[i].length() != 2) {
-                        msgToast("Incorrect input for HEX format."
-                                + "\nIt should be 2 bytes for each HEX word.", Toast.LENGTH_SHORT);
+                        msgToast("Incorrect input for HEX format." + "\nIt should be 2 bytes for each HEX word.",
+                                Toast.LENGTH_SHORT);
                         return;
                     }
                 }
@@ -588,12 +590,12 @@ public class UARTLoopbackActivity extends Activity {
                 try {
                     destStr = hexToAscii(srcStr.replaceAll(" ", ""));
                 } catch (IllegalArgumentException e) {
-                    msgToast("Incorrect input for HEX format."
-                            + "\nAllowed charater: 0~9, a~f and A~F", Toast.LENGTH_SHORT);
+                    msgToast("Incorrect input for HEX format." + "\nAllowed charater: 0~9, a~f and A~F",
+                            Toast.LENGTH_SHORT);
                     return;
                 }
             }
-            break;
+                break;
 
             case FORMAT_DEC: {
                 String[] tmpStr = srcStr.split(" ");
@@ -604,8 +606,8 @@ public class UARTLoopbackActivity extends Activity {
                                 + "\nThere should be only 1 space between 2 DEC words.", Toast.LENGTH_SHORT);
                         return;
                     } else if (tmpStr[i].length() != 3) {
-                        msgToast("Incorrect input for DEC format."
-                                + "\nIt should be 3 bytes for each DEC word.", Toast.LENGTH_SHORT);
+                        msgToast("Incorrect input for DEC format." + "\nIt should be 3 bytes for each DEC word.",
+                                Toast.LENGTH_SHORT);
                         return;
                     }
                 }
@@ -614,16 +616,14 @@ public class UARTLoopbackActivity extends Activity {
                     destStr = decToAscii(srcStr.replaceAll(" ", ""));
                 } catch (IllegalArgumentException e) {
                     if (e.getMessage().equals("ex_a")) {
-                        msgToast("Incorrect input for DEC format."
-                                + "\nAllowed charater: 0~9", Toast.LENGTH_SHORT);
+                        msgToast("Incorrect input for DEC format." + "\nAllowed charater: 0~9", Toast.LENGTH_SHORT);
                     } else {
-                        msgToast("Incorrect input for DEC format."
-                                + "\nAllowed range: 0~255", Toast.LENGTH_SHORT);
+                        msgToast("Incorrect input for DEC format." + "\nAllowed range: 0~255", Toast.LENGTH_SHORT);
                     }
                     return;
                 }
             }
-            break;
+                break;
 
             case FORMAT_ASCII:
             default:
@@ -701,12 +701,12 @@ public class UARTLoopbackActivity extends Activity {
             case FORMAT_HEX: {
                 readText.append("Hex");
             }
-            break;
+                break;
 
             case FORMAT_DEC: {
                 readText.append("Dec");
             }
-            break;
+                break;
 
             case FORMAT_ASCII:
             default:
@@ -725,7 +725,7 @@ public class UARTLoopbackActivity extends Activity {
                 String temp;
                 StringBuilder tmpSB = new StringBuilder();
                 for (int i = 0; i < ch.length; i++) {
-                    temp = String.format("%02x", (int) ch[i]); //ASCII를 길이가 2인 hex로 변
+                    temp = String.format("%02x", (int) ch[i]); // ASCII를 길이가 2인 hex로 변
 
                     if (temp.length() == 4) {
                         tmpSB.append(temp, 2, 4);
@@ -739,14 +739,14 @@ public class UARTLoopbackActivity extends Activity {
                 }
                 readText.setText(tmpSB);
 
-                //readSB.delete(0, readSB.length());
-//				writeText.setText(" ");
-//    			writeText.setText(tmpSB);
+                // readSB.delete(0, readSB.length());
+                // writeText.setText(" ");
+                // writeText.setText(tmpSB);
 
                 parsing(tmpSB);
                 tmpSB.delete(0, tmpSB.length());
             }
-            break;
+                break;
 
             case FORMAT_DEC: {
                 char[] ch = readSB.toString().toCharArray();
@@ -767,7 +767,7 @@ public class UARTLoopbackActivity extends Activity {
                 readText.setText(tmpSB);
                 tmpSB.delete(0, tmpSB.length());
             }
-            break;
+                break;
 
             case FORMAT_ASCII:
             default:
@@ -785,18 +785,16 @@ public class UARTLoopbackActivity extends Activity {
             case "60 10 10": {
                 writeText.setText("119 BUTTON");
             }
-            break;
+                break;
             case "67 4a 01": {
                 writeText.setText("DOOR");
             }
-            break;
+                break;
             default: {
                 writeText.setText("DONT KNOW");
             }
-            break;
+                break;
         }
     }
+
 }
-
-
-
