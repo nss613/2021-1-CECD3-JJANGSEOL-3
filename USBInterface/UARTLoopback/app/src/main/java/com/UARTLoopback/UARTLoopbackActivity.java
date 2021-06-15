@@ -791,9 +791,8 @@ public class UARTLoopbackActivity extends Activity {
                 writeText.setText("DOOR");
             }
                 break;
-            default: {
+            default:
                 writeText.setText("DONT KNOW");
-            }
                 break;
         }
     }
