@@ -1,6 +1,8 @@
 package com.UARTLoopback;
 
-@IgnoreExtraProperties
+import java.util.Map;
+import java.util.HashMap;
+
 public class PeriodData {
     public int heart_beat;
     public int motion_cnt;
@@ -18,7 +20,7 @@ public class PeriodData {
         this.human_sensing = human_sensing;
     }
 
-    @Exclude
+   // @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
         result.put("heart_beat", heart_beat);
