@@ -50,7 +50,7 @@ public class UARTLoopbackActivity extends Activity {
     Menu myMenu;
     final int MENU_FORMAT = Menu.FIRST;
     final int MENU_CLEAN = Menu.FIRST + 1;
-    final String[] formatSettingItems = { "ASCII", "Hexadecimal", "Decimal" };
+    final String[] formatSettingItems = {"ASCII", "Hexadecimal", "Decimal"};
 
     final int FORMAT_ASCII = 0;
     final int FORMAT_HEX = 1;
@@ -607,7 +607,7 @@ public class UARTLoopbackActivity extends Activity {
                     return;
                 }
             }
-                break;
+            break;
 
             case FORMAT_DEC: {
                 String[] tmpStr = srcStr.split(" ");
@@ -635,7 +635,7 @@ public class UARTLoopbackActivity extends Activity {
                     return;
                 }
             }
-                break;
+            break;
 
             case FORMAT_ASCII:
             default:
@@ -713,12 +713,12 @@ public class UARTLoopbackActivity extends Activity {
             case FORMAT_HEX: {
                 readText.append("Hex");
             }
-                break;
+            break;
 
             case FORMAT_DEC: {
                 readText.append("Dec");
             }
-                break;
+            break;
 
             case FORMAT_ASCII:
             default:
@@ -737,7 +737,7 @@ public class UARTLoopbackActivity extends Activity {
                 String temp;
                 StringBuilder tmpSB = new StringBuilder();
                 for (int i = 0; i < ch.length; i++) {
-                    temp = String.format("%02x", (int) ch[i]); // ASCII를 길이가 2인 hex로 변
+                    temp = String.format("%02x", (int) ch[i]); // ASCII를 길이가 2인 hex로 변환
 
                     if (temp.length() == 4) {
                         tmpSB.append(temp, 2, 4);
@@ -758,7 +758,7 @@ public class UARTLoopbackActivity extends Activity {
                 parsing(tmpSB);
                 tmpSB.delete(0, tmpSB.length());
             }
-                break;
+            break;
 
             case FORMAT_DEC: {
                 char[] ch = readSB.toString().toCharArray();
@@ -779,7 +779,7 @@ public class UARTLoopbackActivity extends Activity {
                 readText.setText(tmpSB);
                 tmpSB.delete(0, tmpSB.length());
             }
-                break;
+            break;
 
             case FORMAT_ASCII:
             default:
@@ -790,33 +790,91 @@ public class UARTLoopbackActivity extends Activity {
 
     // add parsing
     public void parsing(StringBuilder sb) {
-        int startIndex = sb.indexOf("55 33");
-        int endToCmd = 18;
-        int cmdLen = 8;
-        StringBuffer writeSB;
-        String cmdString = sb.substring(startIndex + endToCmd, startIndex + endToCmd + cmdLen);
-        switch (cmdString) {
-            case "60 10 10": {
-                writeSB = "119BUTTON";
-                wrietSB.delete(0, readSB.length());
-                writeText.setText("119 BUTTON");
-
-                databaseReference.child("Event").child(currentTime).setValue(("119 BUTTON"));
-
-            }
+        now = new Date();
+        currentTime = transFormat.format(now);
+        if (sb.length() == 0)
+            return;
+        readSB.delete(0, readSB.length());
+        writeText.setText(readSB);
+        String dataLength = sb.substring(6, 8);
+        int startIndex = sb.indexOf("7a");
+        if (startIndex != -1) { //period data인 경우
+            databaseReference.child("Event").child(currentTime).setValue((readSB.toString()));
+        }
+//        if (startIndex != -1) {
+//            int endToCmd = 18;
+//            int cmdLen = 8;
+//            int num = 0;
+//            String cmdString = sb.substring(startIndex + endToCmd, startIndex + endToCmd + cmdLen);
+//            switch (cmdString) {
+//                case "60 11 01": {
+//                    writeText.setText("RF BUTTON-EMERGENCY");
+//                    databaseReference.child("Event").child(currentTime).setValue(("RF BUTTON-EMERGENCY"));
+//                }
+//                case "61 11 01": {
+//                    writeText.setText("RF BUTTON-CANCEL");
+//                    databaseReference.child("Event").child(currentTime).setValue(("RF BUTTON-CANCEL"));
+//                }
+//                break;
+//                case "67 4a 01": {
+//                    writeText.setText("DOOR");
+//                    databaseReference.child("Event").child(currentTime).setValue(("DOOR"));
+//
+//                }
+//                break;
+//                default: {
+//                    writeText.setText("DONT KNOW");
+//                    databaseReference.child("Event").child(currentTime).setValue(("DONT KNOW"));
+//
+//                }
+//                break;
+//            }
+//        } else { //Key Event인 경우
+        else {
+            String cmdString = sb.substring(15, 23);
+            switch (cmdString) {
+                case "60 11 01": {
+                    writeText.setText("RF BUTTON-EMERGENCY");
+                    databaseReference.child("Event").child(currentTime).setValue(("RF BUTTON-EMERGENCY"));
+                }
                 break;
-            case "67 4a 01": {
-                writeText.setText("DOOR");
-                databaseReference.child("Event").child(currentTime).setValue(("DOOR"));
-
-            }
+                case "61 11 01": {
+                    writeText.setText("RF BUTTON-CANCEL");
+                    databaseReference.child("Event").child(currentTime).setValue(("RF BUTTON-CANCEL"));
+                }
                 break;
-            default: {
-                writeText.setText("DONT KNOW");
-                databaseReference.child("Event").child(currentTime).setValue(("DONT KNOW"));
-            }
+                case "67 4a 01": {
+                    writeText.setText("DOOR");
+                    databaseReference.child("Event").child(currentTime).setValue(("DOOR"));
+                }
                 break;
+                case "60 10 10": {
+                    writeText.setText("KEY-119");
+                    databaseReference.child("Event").child(currentTime).setValue(("KEY-119"));
+                }
+                break;
+                case "61 10 20":
+                case "60 10 20": {
+                    writeText.setText("KEY-CANCEL");
+                    databaseReference.child("Event").child(currentTime).setValue(("KEY-CANCEL"));
+                }
+                break;
+                case "60 10 30": {
+                    writeText.setText("KEY-ASSISTANT");
+                    databaseReference.child("Event").child(currentTime).setValue(("KEY-ASSISTANT"));
+                }
+                break;
+                case "60 10 50": {
+                    writeText.setText("KEY-CALL");
+                    databaseReference.child("Event").child(currentTime).setValue(("KEY-CALL"));
+                }
+                break;
+                default: {
+                    writeText.setText(cmdString);
+                    //databaseReference.child("Event").child(currentTime).setValue(("KEY-DONT KNOW"));
+                }
+                break;
+            }
         }
     }
-
 }
