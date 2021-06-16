@@ -21,6 +21,10 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.Map;
+import java.util.HashMap;
+
+
 import com.UARTLoopback.R.drawable;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.database.DatabaseReference;
@@ -798,38 +802,16 @@ public class UARTLoopbackActivity extends Activity {
         writeText.setText(readSB);
         String dataLength = sb.substring(6, 8);
         int startIndex = sb.indexOf("7a");
+
         if (startIndex != -1) { //period data인 경우
-            databaseReference.child("Event").child(currentTime).setValue((readSB.toString()));
+           // databaseReference.child("Event").child(currentTime).setValue((readSB.toString()));
+            Map<String, Object> childUpdates = new HashMap<>();
+            Map<String, Object> postValues = null;
+            //PeriodData post = new PeriodData( ); //param: 센서값 data
+            postValues = post.toMap();
+            childUpdates.put("/Periodic Data/" + currentTime, postValues);
+            databaseReference.updateChildren(childUpdates);
         }
-//        if (startIndex != -1) {
-//            int endToCmd = 18;
-//            int cmdLen = 8;
-//            int num = 0;
-//            String cmdString = sb.substring(startIndex + endToCmd, startIndex + endToCmd + cmdLen);
-//            switch (cmdString) {
-//                case "60 11 01": {
-//                    writeText.setText("RF BUTTON-EMERGENCY");
-//                    databaseReference.child("Event").child(currentTime).setValue(("RF BUTTON-EMERGENCY"));
-//                }
-//                case "61 11 01": {
-//                    writeText.setText("RF BUTTON-CANCEL");
-//                    databaseReference.child("Event").child(currentTime).setValue(("RF BUTTON-CANCEL"));
-//                }
-//                break;
-//                case "67 4a 01": {
-//                    writeText.setText("DOOR");
-//                    databaseReference.child("Event").child(currentTime).setValue(("DOOR"));
-//
-//                }
-//                break;
-//                default: {
-//                    writeText.setText("DONT KNOW");
-//                    databaseReference.child("Event").child(currentTime).setValue(("DONT KNOW"));
-//
-//                }
-//                break;
-//            }
-//        } else { //Key Event인 경우
         else {
             String cmdString = sb.substring(15, 23);
             switch (cmdString) {
