@@ -8,7 +8,11 @@
 * 박희상
 
 ## 개발환경
-* Android Studio
+<p>
+<img src="https://img.shields.io/badge/Java-orange">
+<img src="https://img.shields.io/badge/AndroidStudio-green">
+<img src="https://img.shields.io/badge/firebase-blue">
+</p>
 
 ## 주요 기능
 * 사용자 맞춤형 UI 제공
