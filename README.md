@@ -53,6 +53,8 @@
 
 ## 진행 사항
 1. 센서 데이터 Raw Data 분석
+<img width = 600 src="https://user-images.githubusercontent.com/46514182/122638957-36080f80-d132-11eb-97d5-3bcd4a28837f.png">
+<img width = 800 src="https://user-images.githubusercontent.com/46514182/122639176-5daba780-d133-11eb-881b-f39a90851c4c.png">
 
 2. 센서 데이터 Parsing 후 데이터베이스에 저장
 <img width = 600 src="https://user-images.githubusercontent.com/46514182/122637558-5633d080-d12a-11eb-90aa-71255240cb5e.png">
