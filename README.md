@@ -7,17 +7,32 @@
 * 박지호
 * 박희상
 
+## 개발 배경
+### 독거노인의 증가, 독거노인의 높은 자살률
+
+2000년 ~ 2020년 독거노인 비율             |  OECD 주요국 65세 이상 자살률
+:-------------------------:|:-------------------------:
+![](https://user-images.githubusercontent.com/46514182/122636989-3058fc80-d127-11eb-867d-00ba987d220d.png) |  <img width = 350 src = "https://user-images.githubusercontent.com/46514182/122637041-7ada7900-d127-11eb-9ecc-e09a05b416c1.png">
+
+독거노인은 경제상황이나 신체 건강의 어려움도 있지만 정신건강도 매우 취약하다. 한국은 OECD 국가들 중 노인 자살률이 높은 국가이다.  
+한국 노인 중 독거노인의 자살률은 더 높다.
+
+### 이에 따른 사회복지공무원의 업무 부담 증가로 늘어나는 독거노인의 수를 감당할 대안 필요
+
+복지사 1명당 담당하는 대상자             |  읍면동 사회복지공무원 확충 계획
+:-------------------------:|:-------------------------:
+![](https://user-images.githubusercontent.com/46514182/122637283-b3c71d80-d128-11eb-8008-9dd314d7c161.png) |  <img width = 350 src = "https://user-images.githubusercontent.com/46514182/122637222-65b21a00-d128-11eb-9ab9-1463f3377399.png">
+
 ## 개발도구 및 작동원리
-독거노인 응급안전안심서비스 차세대 댁내 장비 사용하여 센서데이터 수집 후 그래프로 시각화  
+<b> 독거노인 응급안전안심서비스 차세대 댁내 장비 사용하여 센서데이터 수집 후 그래프로 시각화  </b>
 
 <img width = 600 src="https://user-images.githubusercontent.com/46514182/122636316-9ba0cf80-d123-11eb-9e25-d35dddcf3c12.png">
 
-우울 증상 조기 감지 CNN MODEL 생성
+<b>우울 증상 조기 감지 CNN MODEL 생성 </b>
 
 <img width = 600 src="https://user-images.githubusercontent.com/46514182/122636788-09e69180-d126-11eb-9770-7168fed18dd0.png">
 
-CNN MODEL 활용한 독거노인 행동 패턴 분석
-
+<b>CNN MODEL 활용한 독거노인 행동 패턴 분석 </b>
 
 <img width = 600 src="https://user-images.githubusercontent.com/46514182/122636925-c6d8ee00-d126-11eb-8b2a-df3ab1efa809.png">
 
