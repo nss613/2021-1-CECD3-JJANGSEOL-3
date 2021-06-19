@@ -16,6 +16,11 @@
 
 <img width = 600 src="https://user-images.githubusercontent.com/46514182/122636788-09e69180-d126-11eb-9770-7168fed18dd0.png">
 
+CNN MODEL 활용한 독거노인 행동 패턴 분석
+
+
+<img width = 600 src="https://user-images.githubusercontent.com/46514182/122636925-c6d8ee00-d126-11eb-8b2a-df3ab1efa809.png">
+
 ## 개발환경
 <p>
 <img src="https://img.shields.io/badge/Java-orange">
