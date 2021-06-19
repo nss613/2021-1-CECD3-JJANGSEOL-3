@@ -8,9 +8,13 @@
 * 박희상
 
 ## 개발도구 및 작동원리
-독거노인 응급안전안심서비스 차세대 댁내 장비 사용  
+독거노인 응급안전안심서비스 차세대 댁내 장비 사용하여 센서데이터 수집 후 그래프로 시각화  
 
 <img width = 600 src="https://user-images.githubusercontent.com/46514182/122636316-9ba0cf80-d123-11eb-9e25-d35dddcf3c12.png">
+
+우울 증상 조기 감지 CNN MODEL 생성
+
+<img width = 600 src="https://user-images.githubusercontent.com/46514182/122636788-09e69180-d126-11eb-9770-7168fed18dd0.png">
 
 ## 개발환경
 <p>
