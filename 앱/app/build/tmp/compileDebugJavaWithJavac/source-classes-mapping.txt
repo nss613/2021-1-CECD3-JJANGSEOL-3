@@ -1,0 +1,39 @@
+com/example/myapplication/data/LoginDataSource.java
+ com.example.myapplication.data.LoginDataSource
+com/example/myapplication/data/LoginRepository.java
+ com.example.myapplication.data.LoginRepository
+com/example/myapplication/MainActivity.java
+ com.example.myapplication.MainActivity
+com/example/myapplication/ui/login/LoginViewModel.java
+ com.example.myapplication.ui.login.LoginViewModel
+com/example/myapplication/ui/login/LoginFormState.java
+ com.example.myapplication.ui.login.LoginFormState
+com/example/myapplication/BuildConfig.java
+ com.example.myapplication.BuildConfig
+com/example/myapplication/ui/login/LoginResult.java
+ com.example.myapplication.ui.login.LoginResult
+com/example/myapplication/ui/login/LoginViewModelFactory.java
+ com.example.myapplication.ui.login.LoginViewModelFactory
+com/example/myapplication/data/model/LoggedInUser.java
+ com.example.myapplication.data.model.LoggedInUser
+com/example/myapplication/ui/login/LoggedInUserView.java
+ com.example.myapplication.ui.login.LoggedInUserView
+com/example/myapplication/data/Result.java
+ com.example.myapplication.data.Result
+ com.example.myapplication.data.Result$1
+ com.example.myapplication.data.Result$Error
+ com.example.myapplication.data.Result$Success
+com/example/myapplication/SettingsActivity.java
+ com.example.myapplication.SettingsActivity
+ com.example.myapplication.SettingsActivity$SettingsFragment
+com/example/myapplication/ui/login/LoginActivity.java
+ com.example.myapplication.ui.login.LoginActivity
+ com.example.myapplication.ui.login.LoginActivity$1
+ com.example.myapplication.ui.login.LoginActivity$2
+ com.example.myapplication.ui.login.LoginActivity$3
+ com.example.myapplication.ui.login.LoginActivity$4
+ com.example.myapplication.ui.login.LoginActivity$5
+ com.example.myapplication.ui.login.LoginActivity$6
+ com.example.myapplication.ui.login.LoginActivity$7
+com/example/myapplication/HomeActivity.java
+ com.example.myapplication.HomeActivity
