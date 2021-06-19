@@ -13,11 +13,11 @@ public class PeriodData {
         // Default constructor required for calls to DataSnapshot.getValue(FirebasePost.class)
     }
 
-    public PeriodData(int heart_beat, int motion_cnt, int door_cnt, int human_sensing) {
-        this.heart_beat = heart_beat;
-        this.motion_cnt = motion_cnt;
-        this.door_cnt = door_cnt;
-        this.human_sensing = human_sensing;
+    public PeriodData(String heart_beat, String motion_cnt, String door_cnt, String human_sensing) {
+        this.heart_beat = Integer.parseInt(heart_beat);
+        this.motion_cnt = Integer.parseInt(motion_cnt);
+        this.door_cnt = Integer.parseInt(door_cnt);
+        this.human_sensing = Integer.parseInt(human_sensing);
     }
 
    // @Exclude

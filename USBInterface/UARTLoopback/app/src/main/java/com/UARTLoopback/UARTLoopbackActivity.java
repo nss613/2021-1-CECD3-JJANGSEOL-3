@@ -807,7 +807,7 @@ public class UARTLoopbackActivity extends Activity {
            // databaseReference.child("Event").child(currentTime).setValue((readSB.toString()));
             Map<String, Object> childUpdates = new HashMap<>();
             Map<String, Object> postValues = null;
-            //PeriodData post = new PeriodData( ); //param: 센서값 data
+            PeriodData post = new PeriodData(sb.substring(80,83),sb.substring(94,97),sb.substring(108,111),sb.substring(123,126)); //param: 센서값 data
             postValues = post.toMap();
             childUpdates.put("/Periodic Data/" + currentTime, postValues);
             databaseReference.updateChildren(childUpdates);
