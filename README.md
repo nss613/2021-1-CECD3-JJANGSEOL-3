@@ -7,6 +7,11 @@
 * 박지호
 * 박희상
 
+## 개발도구 및 작동원리
+독거노인 응급안전안심서비스 차세대 댁내 장비 사용  
+
+<img width = 600 src="https://user-images.githubusercontent.com/46514182/122636316-9ba0cf80-d123-11eb-9e25-d35dddcf3c12.png">
+
 ## 개발환경
 <p>
 <img src="https://img.shields.io/badge/Java-orange">
