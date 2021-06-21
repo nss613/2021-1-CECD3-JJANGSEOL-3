@@ -7,7 +7,7 @@
 * <b> 2017112091 박지호 </b>
 * <b> 2016110413 박희상 <b>
 
-## 개발 배경
+## 1. 개발 배경
 ### 1. 독거노인의 증가, 독거노인의 높은 자살률
 
 2000년 ~ 2020년 독거노인 비율             |  OECD 주요국 65세 이상 자살률
@@ -23,10 +23,10 @@
 :-------------------------:|:-------------------------:
 ![](https://user-images.githubusercontent.com/46514182/122637283-b3c71d80-d128-11eb-8008-9dd314d7c161.png) |  <img width = 350 src = "https://user-images.githubusercontent.com/46514182/122637222-65b21a00-d128-11eb-9ab9-1463f3377399.png">
 
-## 개발 목적
+## 2. 개발 목적
 ### 센서 데이터와 인공지능 딥러닝을 활용하여 독거노인의 우울 증상을 초기에 감지하여 심리적 외로움으로 인한 독거노인의 자살 및 고독사를 예방한다.
 
-## 개발도구 및 작동원리
+## 3. 개발도구 및 작동원리
 <b> 독거노인 응급안전안심서비스 차세대 댁내 장비 사용하여 센서데이터 수집 후 그래프로 시각화  </b>
 
 <img width = 600 src="https://user-images.githubusercontent.com/46514182/122636316-9ba0cf80-d123-11eb-9e25-d35dddcf3c12.png">
@@ -39,22 +39,30 @@
 
 <img width = 600 src="https://user-images.githubusercontent.com/46514182/122636925-c6d8ee00-d126-11eb-8b2a-df3ab1efa809.png">
 
-## 개발환경
+## 4. 개발환경
 <p>
-<img src="https://img.shields.io/badge/Java-orange">
-<img src="https://img.shields.io/badge/AndroidStudio-green">
-<img src="https://img.shields.io/badge/firebase-blue">
+<img height = 30 src="https://img.shields.io/badge/Java-orange">
+<img height = 30 src="https://img.shields.io/badge/AndroidStudio-green">
+<img height = 30 src="https://img.shields.io/badge/firebase-blue">
+<img height = 30 src="https://img.shields.io/badge/MariaDB-purple">
 </p>
 
-## 주요 기능
+## 5. 주요 기능
 * 사용자 맞춤형 UI 제공
 * 게이트웨이로 들어오는 센서 데이터 값을 수신 후 파싱
 * CNN 모델 학습용 그래프 생성
 
-## 진행 사항
+## 6. 진행 사항
 1. 센서 데이터 Raw Data 분석
 <img width = 600 src="https://user-images.githubusercontent.com/46514182/122638957-36080f80-d132-11eb-97d5-3bcd4a28837f.png">
 <img width = 800 src="https://user-images.githubusercontent.com/46514182/122639176-5daba780-d133-11eb-881b-f39a90851c4c.png">
 
 2. 센서 데이터 Parsing 후 데이터베이스에 저장
 <img width = 600 src="https://user-images.githubusercontent.com/46514182/122637558-5633d080-d12a-11eb-90aa-71255240cb5e.png">
+</br>추후 서버에 Maria DB 설치후 Maria DB에 연동 예정
+
+## 7. 향후 계획
+1. 센서 데이터 활용하여 대상자 생활 패턴 파악
+2. 생활 패턴 데이터를 시각화 -> 그래프 생성하여 모니터링
+3. 생활 패턴 그래프 활용하여 CNN 학습 모델 구축
+4. 구축된 CNN 모델 활용하여 대상자의 우울 증상 초기 감지
