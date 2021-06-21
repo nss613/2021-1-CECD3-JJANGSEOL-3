@@ -14,7 +14,8 @@
 :-------------------------:|:-------------------------:
 ![](https://user-images.githubusercontent.com/46514182/122636989-3058fc80-d127-11eb-867d-00ba987d220d.png) |  <img width = 350 src = "https://user-images.githubusercontent.com/46514182/122637041-7ada7900-d127-11eb-9ecc-e09a05b416c1.png">
 
-독거노인은 경제상황이나 신체 건강의 어려움도 있지만 정신건강도 매우 취약하다. 한국은 OECD 국가들 중 노인 자살률이 높은 국가이다.  
+독거노인은 경제상황이나 신체 건강의 어려움도 있지만 정신건강도 매우 취약하다.  
+한국은 OECD 국가들 중 노인 자살률이 높은 국가이다.  
 한국 노인 중 독거노인의 자살률은 더 높다.
 
 ### 2. 이에 따른 사회복지공무원의 업무 부담 증가로 늘어나는 독거노인의 수를 감당할 대안 필요
@@ -58,7 +59,7 @@
 <img width = 800 src="https://user-images.githubusercontent.com/46514182/122639176-5daba780-d133-11eb-881b-f39a90851c4c.png">
 
 2. 센서 데이터 Parsing 후 데이터베이스에 저장
-<img width = 600 src="https://user-images.githubusercontent.com/46514182/122637558-5633d080-d12a-11eb-90aa-71255240cb5e.png">
+<img width = 400 src="https://user-images.githubusercontent.com/46514182/122637558-5633d080-d12a-11eb-90aa-71255240cb5e.png">
 </br>추후 서버에 Maria DB 설치후 Maria DB에 연동 예정
 
 ## 7. 향후 계획
