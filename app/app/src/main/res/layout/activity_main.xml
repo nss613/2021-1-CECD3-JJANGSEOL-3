@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:fillViewport="false">
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#ffffff"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtClock"
+            android:layout_width="match_parent"
+            android:layout_height="550dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/background"
+            android:gravity="bottom"
+            android:paddingLeft="30dp"
+            android:paddingBottom="30dp"
+            android:text="11월 09일\n오후 10:17"
+            android:textColor="#ffffff"
+            android:textSize="60dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnReadCSV"
+            android:layout_width="225dp"
+            android:layout_height="210dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/round_119"
+            android:drawableLeft="@drawable/callxml"
+            android:paddingLeft="10dp"
+            android:textColor="#ffffff"
+            android:textSize="30dp"
+            android:text="119 통화"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+        <Button
+            android:id="@+id/btnShowChart"
+            android:layout_width="225dp"
+            android:layout_height="210dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/round_graph"
+            android:drawableLeft="@drawable/graphxml"
+            android:paddingLeft="15dp"
+            android:textColor="#ffffff"
+            android:textSize="30dp"
+            android:text="스트레스\n그래프"
+            android:textAlignment="center"
+            android:textStyle="bold"/>
+    </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
