@@ -43,7 +43,7 @@
 <img height = 30 src="https://img.shields.io/badge/Java-orange">
 <img height = 30 src="https://img.shields.io/badge/AndroidStudio-green">
 <img height = 30 src="https://img.shields.io/badge/firebase-blue">
-<img height = 30 src="https://img.shields.io/badge/MariaDB-purple">
+<img height = 30 src="https://img.shields.io/badge/ariaDB-purple">
 </p>
 
 ## 5. 주요 기능
